@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | Friends Designer Studio | Men's Fashion Hyderabad</title>
+    <meta name="description" content="Explore our exclusive collections of designer suits, festive wear, and premium men's fashion at Friends Designer Studio, Hyderabad.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Collections Page Styles */
+.collections-hero {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 80px;
+}
+
+.collections-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.collections-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.collections-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.collections-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.collections-filter {
+    padding: 30px 0;
+    background-color: #f5f7fa;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #e74c3c;
+    color: white;
+    border-color: #e74c3c;
+}
+
+.collections-grid {
+    padding: 80px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.collection-item {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.collection-item:hover {
+    transform: translateY(-5px);
+}
+
+.collection-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.collection-item:hover img {
+    transform: scale(1.05);
+}
+
+.collection-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.collection-item:hover .collection-overlay {
+    transform: translateY(0);
+}
+
+.collection-overlay h3 {
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.collection-overlay p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.custom-tailoring {
+    padding: 80px 0;
+    background-color: #f5f7fa;
+}
+
+.custom-tailoring .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.tailoring-content {
+    flex: 1;
+}
+
+.tailoring-content h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    position: relative;
+}
+
+.tailoring-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.tailoring-content p {
+    margin-bottom: 20px;
+    color: #7f8c8d;
+}
+
+.tailoring-image {
+    flex: 1;
+}
+
+.tailoring-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fabric-guide {
+    padding: 80px 0;
+}
+
+.fabric-guide h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2c3e50;
+    position: relative;
+}
+
+.fabric-guide h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #e74c3c;
+}
+
+.fabrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.fabric-card {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.fabric-card:hover {
+    transform: translateY(-5px);
+}
+
+.fabric-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.fabric-card h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.fabric-card p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .custom-tailoring .container {
+        flex-direction: column;
+    }
+    
+    .tailoring-content,
+    .tailoring-image {
+        flex: none;
+        width: 100%;
+    }
+    
+    .tailoring-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .collections-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .collections-hero {
+        height: 300px;
+    }
+    
+    .collections-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .collections-hero p {
+        font-size: 1rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .collection-item {
+        height: 350px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Friends Designer Studio Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collections.html" class="active">Collections</a></li>
+                    <li><a href="wedding.html">Wedding Wear</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin.html" class="admin-link">Admin</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="background-image: url('images/collections-hero.jpg')">
+        <div class="container">
+            <h1>Our Collections</h1>
+            <p>Discover our exclusive range of premium men's fashion</p>
+        </div>
+    </section>
+
+    <!-- Collections Filter -->
+    <section class="collections-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Collections</button>
+                <button class="filter-btn" data-filter="suits">Designer Suits</button>
+                <button class="filter-btn" data-filter="festive">Festive Wear</button>
+                <button class="filter-btn" data-filter="formal">Formal Wear</button>
+                <button class="filter-btn" data-filter="indowestern">Indo-Western</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Grid -->
+    <section class="collections-grid">
+        <div class="container">
+            <div class="grid">
+                <div class="collection-item suits" data-category="suits">
+                    <img src="images/suit1.jpg" alt="Premium Navy Suit">
+                    <div class="collection-overlay">
+                        <h3>Premium Navy Suit</h3>
+                        <p>Italian wool with satin lapel</p>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="collection-item suits" data-category="suits">
+                    <img src="images/suit2.jpg" alt="Charcoal Grey Suit">
+                    <div class="collection-overlay">
+                        <h3>Charcoal Grey Suit</h3>
+                        <p>Super 120s wool with peak lapel</p>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="collection-item festive" data-category="festive">
+                    <img src="images/festive1.jpg" alt="Silk Kurta Set">
+                    <div class="collection-overlay">
+                        <h3>Silk Kurta Set</h3>
+                        <p>Handwoven Banarasi silk</p>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="collection-item formal" data-category="formal">
+                    <img src="images/formal1.jpg" alt="Black Tuxedo">
+                    <div class="collection-overlay">
+                        <h3>Black Tuxedo</h3>
+                        <p>Midnight black with satin trim</p>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="collection-item indowestern" data-category="indowestern">
+                    <img src="images/indowestern1.jpg" alt="Indo-Western Ensemble">
+                    <div class="collection-overlay">
+                        <h3>Indo-Western Ensemble</h3>
+                        <p>Fusion jacket with dhoti pants</p>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="collection-item suits" data-category="suits">
+                    <img src="images/suit3.jpg" alt="Light Grey Suit">
+                    <div class="collection-overlay">
+                        <h3>Light Grey Suit</h3>
+                        <p>Linen-cotton blend for summer</p>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="collection-item festive" data-category="festive">
+                    <img src="images/festive2.jpg" alt="Embroidered Sherwani">
+                    <div class="collection-overlay">
+                        <h3>Embroidered Sherwani</h3>
+                        <p>Zardozi work on premium silk</p>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="collection-item formal" data-category="formal">
+                    <img src="images/formal2.jpg" alt="Three-Piece Suit">
+                    <div class="collection-overlay">
+                        <h3>Three-Piece Suit</h3>
+                        <p>Navy blue with waistcoat</p>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Tailoring -->
+    <section class="custom-tailoring">
+        <div class="container">
+            <div class="tailoring-content">
+                <h2>Custom Tailoring Services</h2>
+                <p>Can't find exactly what you're looking for? Our master tailors can create a completely custom outfit tailored to your exact measurements and style preferences.</p>
+                <p>From fabric selection to the final stitch, we'll guide you through every step of the process to ensure your garment is perfect.</p>
+                <a href="contact.html" class="btn">Schedule a Consultation</a>
+            </div>
+            <div class="tailoring-image">
+                <img src="images/tailoring.jpg" alt="Custom Tailoring">
+            </div>
+        </div>
+    </section>
+
+    <!-- Fabric Guide -->
+    <section class="fabric-guide">
+        <div class="container">
+            <h2>Our Premium Fabrics</h2>
+            <div class="fabrics-grid">
+                <div class="fabric-card">
+                    <img src="images/fabric1.jpg" alt="Italian Wool">
+                    <h3>Italian Wool</h3>
+                    <p>Luxurious, breathable, and perfect for year-round wear</p>
+                </div>
+                <div class="fabric-card">
+                    <img src="images/fabric2.jpg" alt="Super 120s">
+                    <h3>Super 120s</h3>
+                    <p>Ultra-fine merino wool for exceptional drape and comfort</p>
+                </div>
+                <div class="fabric-card">
+                    <img src="images/fabric3.jpg" alt="Handwoven Silk">
+                    <h3>Handwoven Silk</h3>
+                    <p>Traditional Indian silks with intricate patterns</p>
+                </div>
+                <div class="fabric-card">
+                    <img src="images/fabric4.jpg" alt="Linen Blend">
+                    <h3>Linen Blend</h3>
+                    <p>Lightweight and perfect for Hyderabad's climate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Outfit?</h2>
+            <p>Visit our boutique in Hyderabad or contact us to schedule an appointment.</p>
+            <a href="contact.html" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="images/logo-white.png" alt="Friends Designer Studio Logo">
+                    <p>Hyderabad's premier men's fashion boutique specializing in designer suits, wedding wear, and custom tailored outfits.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/friends.designer.studio" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="wedding.html">Wedding Wear</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 1st Floor, Vitthal Mandir Complex,<br>Main Road Corner, Hyderabad</p>
+                    <p><i class="fas fa-phone"></i> 8801669349<br>9700670378</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 10AM - 8PM<br>Sun: 11AM - 6PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Friends Designer Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/collections.js"></script>
+    <script>
+        // Collections Filter
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const collectionItems = document.querySelectorAll('.collection-item');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            collectionItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category').includes(filterValue)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+    </script>
+</body>
+</html>

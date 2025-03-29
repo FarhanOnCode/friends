@@ -1,0 +1,948 @@
+/* Global Styles */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --accent-color: #3498db;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --text-color: #333;
+    --text-light: #7f8c8d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    margin: 15px auto 0;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-weight: 600;
+    position: relative;
+}
+
+nav ul li a.active::after,
+nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+.mobile-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.admin-link {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    margin-top: 80px;
+}
+
+.hero-slider {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.slide-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.slider-controls {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.slider-controls button {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.slider-controls button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* About Preview Section */
+.about-preview {
+    background-color: var(--light-color);
+}
+
+.about-preview .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Services Preview */
+.services-preview {
+    background-color: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+}
+
+/* Portfolio Preview */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.portfolio-item {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Testimonials */
+.testimonials {
+    background-color: var(--light-color);
+}
+
+.testimonial-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    overflow: hidden;
+}
+
+.testimonial {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.testimonial.active {
+    position: relative;
+    opacity: 1;
+}
+
+.testimonial p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial h4 {
+    color: var(--secondary-color);
+}
+
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.testimonial-controls button {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-controls button:hover {
+    background-color: var(--secondary-color);
+}
+
+.testimonial-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bdc3c7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--secondary-color);
+}
+
+/* CTA Section */
+.cta {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    color: white;
+}
+
+.cta h2::after {
+    background-color: white;
+}
+
+.cta .btn {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.cta .btn:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 60px 0 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-about img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.footer-about p {
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-contact p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-contact i {
+    color: var(--secondary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .about-preview .container {
+        flex-direction: column;
+    }
+    
+    .about-content,
+    .about-image {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+    
+    .slide-content h1 {
+        font-size: 2rem;
+    }
+    
+    .slide-content p {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .slide-content {
+        padding: 20px;
+    }
+    
+    .slider-controls button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Men's Fashion Specific Styles */
+.collections-preview {
+    padding: 80px 0;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.collection-card {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.collection-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.collection-card:hover img {
+    transform: scale(1.05);
+}
+
+.collection-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.collection-card:hover .collection-overlay {
+    transform: translateY(0);
+}
+
+.why-choose-us {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    margin-bottom: 15px;
+}
+
+.instagram-feed {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.feed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.instagram-post {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.instagram-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.insta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(231, 76, 60, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instagram-post:hover .insta-overlay {
+    opacity: 1;
+}
+
+.insta-overlay i {
+    color: white;
+    font-size: 2.5rem;
+}
+
+/* Wedding Page Styles */
+.wedding-collections {
+    padding: 80px 0;
+}
+
+.wedding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.wedding-card {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.wedding-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wedding-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+}
+
+.custom-wedding {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.custom-wedding .container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.custom-content {
+    flex: 1;
+}
+
+.custom-content ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.custom-content li {
+    margin-bottom: 10px;
+}
+
+.custom-image {
+    flex: 1;
+}
+
+.custom-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.wedding-packages {
+    padding: 80px 0;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.package-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.package-card.featured {
+    border: 2px solid #e74c3c;
+}
+
+.featured-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.package-card h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.package-card ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.package-card li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.wedding-gallery {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    text-align: center;
+}
+
+.consultation-cta {
+    padding: 60px 0;
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .custom-wedding .container {
+        flex-direction: column;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .package-card.featured {
+        order: -1;
+    }
+}
+
+@media (max-width: 576px) {
+    .wedding-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}

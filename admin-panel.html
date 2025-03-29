@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Friends Designer Studio</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logo-white.png" alt="Friends Designer Studio Logo">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" data-section="products"><i class="fas fa-tshirt"></i> Products</a></li>
+                    <li><a href="#" data-section="collections"><i class="fas fa-project-diagram"></i> Collections</a></li>
+                    <li><a href="#" data-section="orders"><i class="fas fa-shopping-bag"></i> Orders</a></li>
+                    <li><a href="#" data-section="customers"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="#" data-section="team"><i class="fas fa-user-tie"></i> Team</a></li>
+                    <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="admin-main">
+            <div class="admin-header">
+                <h2 id="admin-section-title">Dashboard</h2>
+                <div class="admin-user">
+                    <span>Admin User</span>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+            
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <div id="dashboard-section" class="admin-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Products</h3>
+                            <p id="total-products">87</p>
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="stat-card">
+                            <h3>New Orders</h3>
+                            <p id="new-orders">12</p>
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Collections</h3>
+                            <p id="total-collections">6</p>
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Revenue</h3>
+                            <p id="total-revenue">₹2,45,000</p>
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-activity">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>New order #FD2023-115 from Rahul Sharma</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Added new product "Navy Blue Premium Suit"</p>
+                                    <span class="activity-time">5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-user-edit"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Updated team member profile</p>
+                                    <span class="activity-time">Yesterday</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-rupee-sign"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Monthly revenue report generated</p>
+                                    <span class="activity-time">2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products Section -->
+                <div id="products-section" class="admin-section">
+                    <div class="section-header">
+                        <h3>Manage Products</h3>
+                        <button class="btn" id="add-product-btn"><i class="fas fa-plus"></i> Add Product</button>
+                    </div>
+                    
+                    <div class="products-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>FD101</td>
+                                    <td>Navy Blue Premium Suit</td>
+                                    <td>Suits</td>
+                                    <td>₹12,999</td>
+                                    <td>15</td>
+                                    <td><span class="status published">Published</span></td>
+                                    <td>
+                                        <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>FD205</td>
+                                    <td>Silk Embroidered Sherwani</td>
+                                    <td>Wedding</td>
+                                    <td>₹24,999</td>
+                                    <td>8</td>
+                                    <td><span class="status published">Published</span></td>
+                                    <td>
+                                        <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>FD178</td>
+                                    <td>Charcoal Grey Business Suit</td>
+                                    <td>Suits</td>
+                                    <td>₹14,499</td>
+                                    <td>0</td>
+                                    <td><span class="status draft">Draft</span></td>
+                                    <td>
+                                        <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>FD302</td>
+                                    <td>Indo-Western Fusion Jacket</td>
+                                    <td>Festive</td>
+                                    <td>₹9,999</td>
+                                    <td>22</td>
+                                    <td><span class="status published">Published</span></td>
+                                    <td>
+                                        <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Add/Edit Product Modal -->
+                    <div id="product-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="modal-product-title">Add New Product</h3>
+                                <span class="close-modal">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <form id="product-form">
+                                    <div class="form-group">
+                                        <label for="product-name">Product Name*</label>
+                                        <input type="text" id="product-name" name="product-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="product-category">Category*</label>
+                                        <select id="product-category" name="product-category" required>
+                                            <option value="">Select Category</option>
+                                            <option value="suits">Suits</option>
+                                            <option value="wedding">Wedding Wear</option>
+                                            <option value="festive">Festive Wear</option>
+                                            <option value="formal">Formal Wear</option>
+                                            <option value="indowestern">Indo-Western</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="product-price">Price (₹)*</label>
+                                            <input type="number" id="product-price" name="product-price" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="product-stock">Stock Quantity*</label>
+                                            <input type="number" id="product-stock" name="product-stock" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="product-status">Status</label>
+                                        <select id="product-status" name="product-status" required>
+                                            <option value="published">Published</option>
+                                            <option value="draft">Draft</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="product-description">Description*</label>
+                                        <textarea id="product-description" name="product-description" rows="4" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="product-images">Upload Images</label>
+                                        <input type="file" id="product-images" name="product-images" multiple accept="image/*">
+                                        <small>Upload high-quality product images (max 5)</small>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn-outline close-modal">Cancel</button>
+                                        <button type="submit" class="btn">Save Product</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collections Section -->
+                <div id="collections-section" class="admin-section">
+                    <h3>Manage Collections</h3>
+                    <!-- Similar structure to products section -->
+                </div>
+                
+                <!-- Orders Section -->
+                <div id="orders-section" class="admin-section">
+                    <h3>Manage Orders</h3>
+                    <!-- Order management content -->
+                </div>
+                
+                <!-- Customers Section -->
+                <div id="customers-section" class="admin-section">
+                    <h3>Customer Management</h3>
+                    <!-- Customer management content -->
+                </div>
+                
+                <!-- Team Section -->
+                <div id="team-section" class="admin-section">
+                    <h3>Team Management</h3>
+                    <!-- Team management content -->
+                </div>
+                
+                <!-- Settings Section -->
+                <div id="settings-section" class="admin-section">
+                    <h3>Store Settings</h3>
+                    <!-- Settings management content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
